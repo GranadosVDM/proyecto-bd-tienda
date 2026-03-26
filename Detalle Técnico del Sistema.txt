@@ -1,0 +1,56 @@
+Detalle Técnico del Sistema
+
+Base de datos
+
+La base de datos constituye el núcleo del sistema, ya que es el componente encargado de almacenar, organizar y gestionar toda la información relacionada con la tienda. A través de su estructura relacional, se garantiza que los datos se mantengan consistentes, seguros y disponibles para su uso en cualquier momento.
+
+Tablas creadas
+
+Para el funcionamiento del sistema se diseñaron varias tablas, cada una con una función específica dentro del modelo de negocio.
+
+
+La tabla CLIENTE almacena la información de los usuarios del sistema. Contiene el identificador único del cliente como clave primaria, el nombre, el correo electrónico (el cual es único para evitar duplicados), la contraseña y el rol que define si el usuario es administrador o cliente. Esta tabla permite identificar y gestionar a los usuarios dentro del sistema.
+
+
+La tabla CATEGORIA se utiliza para organizar los productos en diferentes grupos. Contiene un identificador único y el nombre de la categoría. Su función principal es facilitar la clasificación y búsqueda de productos.
+
+
+La tabla PRODUCTO almacena los artículos disponibles en la tienda. Incluye el identificador del producto, nombre, descripción, precio, cantidad en stock y la relación con su categoría. Esta tabla permite llevar un control adecuado del inventario.
+
+
+La tabla PEDIDO registra cada compra realizada por los clientes. Contiene el identificador del pedido, la fecha, el cliente asociado y el total de la compra. Representa cada transacción dentro del sistema.
+
+
+La tabla DETALLE_PEDIDO desglosa los pedidos en los productos específicos adquiridos. Contiene el identificador del detalle, el pedido asociado, el producto, la cantidad y el precio unitario. Permite conocer con exactitud qué productos forman parte de cada compra.
+La tabla FACTURA almacena la información de facturación. Incluye el identificador de la factura, el pedido asociado, la fecha y el total. Su función es generar un respaldo formal de cada transacción realizada.
+
+Procedimientos almacenados
+
+Se implementaron procedimientos almacenados para automatizar operaciones dentro de la base de datos. Estos procedimientos permiten ejecutar acciones como insertar, actualizar, eliminar y consultar datos sin necesidad de escribir instrucciones SQL repetitivas.
+
+En la gestión de clientes, los procedimientos permiten administrar toda la información de los usuarios del sistema de forma eficiente. En la gestión de productos, se desarrolló un procedimiento que permite insertar nuevos productos generando automáticamente el identificador mediante secuencias, lo que facilita la administración del inventario.
+
+Funciones del sistema
+
+Se implementó la función FN_CANTIDAD_FACTURAS_CLIENTE, la cual recibe como parámetro el identificador de un cliente y retorna la cantidad de facturas asociadas a este. Esta función permite realizar consultas más avanzadas y analizar el comportamiento de compra de los clientes.
+
+Implementación en Java
+
+El sistema incluye una aplicación en Java que permite interactuar con la base de datos. La clase ConexionBD se encarga de establecer la conexión con Oracle utilizando JDBC, además de configurar los parámetros necesarios y manejar posibles errores.
+
+La clase Main actúa como punto de entrada del sistema. En ella se realiza la conexión, se ejecuta la función FN_CANTIDAD_FACTURAS_CLIENTE, se obtiene el resultado y se muestra en consola, lo cual permite validar el funcionamiento del sistema.
+
+Metodología de desarrollo
+El proyecto se desarrolló en varias etapas. En la fase de análisis se identificaron las necesidades del sistema. En la fase de diseño se definieron las tablas, relaciones y claves. Posteriormente, en la implementación se desarrollaron los scripts SQL, procedimientos, funciones y el código en Java.
+
+Luego se realizó la integración entre la base de datos y la aplicación, y finalmente se llevaron a cabo pruebas para verificar el correcto funcionamiento del sistema.
+
+Utilidad del sistema
+El sistema desarrollado permite gestionar clientes, administrar productos, registrar pedidos, generar facturas y consultar información relevante. En un entorno real, este tipo de solución es fundamental para el funcionamiento de una tienda, ya que permite mejorar la organización de la información, reducir errores y optimizar la toma de decisiones.
+
+Conclusión
+El desarrollo de este proyecto permitió aplicar de manera práctica los conocimientos adquiridos en el área de bases de datos y programación. Se logró implementar un sistema completo que integra almacenamiento, procesamiento y acceso a la información.
+
+Además, se evidenció la importancia de una correcta estructura de datos y la utilidad de herramientas como procedimientos almacenados y funciones. La integración con Java demostró cómo se pueden desarrollar aplicaciones que interactúan con bases de datos de forma eficiente.
+
+En conclusión, este proyecto representa una base sólida para futuros desarrollos en el ámbito profesional, donde la gestión de información es un elemento fundamental.
